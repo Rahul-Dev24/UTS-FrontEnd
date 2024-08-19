@@ -1,4 +1,4 @@
-import { Card, colors, Stack, styled, Tab, Tabs } from '@mui/material'
+import { Card, styled, Tab, Tabs } from '@mui/material'
 import Nav from '../../Components/navBar/Nav'
 import { SyntheticEvent, useState } from 'react';
 import ContactSupportIcon from '@mui/icons-material/ContactSupport';
@@ -9,6 +9,8 @@ import Footer from '../../Components/footer/Footer';
 const Home = () => {
     const [value, setValue] = useState(0);
     const handleChange = (event: SyntheticEvent, newValue: number) => {
+        let val:any = event;
+        setValue(val);
         setValue(newValue);
     }
     //style
