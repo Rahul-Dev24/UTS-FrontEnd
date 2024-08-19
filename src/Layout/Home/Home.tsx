@@ -1,0 +1,79 @@
+import { Card, colors, Stack, styled, Tab, Tabs } from '@mui/material'
+import Nav from '../../Components/navBar/Nav'
+import { SyntheticEvent, useState } from 'react';
+import ContactSupportIcon from '@mui/icons-material/ContactSupport';
+import "./Home.css";
+import Footer from '../../Components/footer/Footer';
+
+
+const Home = () => {
+    const [value, setValue] = useState(0);
+    const handleChange = (event: SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    }
+    //style
+
+    const CustomTabs = styled(Tabs)({
+        overflowX: 'hidden', // Hide overflow content
+        flexWrap: 'nowrap', // Prevent wrapping of tabs
+        '& .MuiTabs-flexContainer': {
+            display: 'flex',
+            flex: '1 1 auto',
+        },
+        '& .MuiTabs-indicator': {
+            backgroundColor: 'orange',
+        },
+    });
+
+    const CustomTab = styled(Tab)({
+        flex: '1 1 auto', // Allow tabs to grow and shrink
+        minWidth: 0, // Allow flexibility in width
+        textAlign: 'center',
+        whiteSpace: 'normal', // Allow text wrapping
+        overflow: 'hidden', // Hide overflow text
+        textOverflow: 'ellipsis', // Show ellipsis if needed
+        fontSize: '0.7rem', // Adjust font size if needed
+        '& .MuiTab-wrapper': {
+            display: 'flex',
+            flexDirection: 'column', // Allow label to stack vertically
+            alignItems: 'center', // Center align text
+        },
+        '&.Mui-selected': {
+            color: '#000',
+        },
+    });
+    return (
+        <div className='homeContainer'>
+            <Nav />
+            <Card sx={{ mt: 1, borderRadius: 0 }}>
+                <CustomTabs
+                    value={value}
+                    onChange={handleChange}
+                    aria-label="icon label tabs example"
+                    variant="scrollable"
+                    scrollButtons="auto"
+                >
+                    <CustomTab icon={<img src="/book_ticket_uts.png" alt="Icon" style={{ width: 24, height: 24 }} />} label="Journey Ticket" />
+                    <CustomTab icon={<img src="/qr_booking1_uts.png" alt="Icon" style={{ width: 24, height: 24 }} />} label="QR Booking" />
+                    <CustomTab icon={<img src="/quick_booking_uts.png" alt="Icon" style={{ width: 24, height: 24 }} />} label="Quick Booking" />
+                    <CustomTab icon={<img src="/platform_ticket_uts.png" alt="Icon" style={{ width: 24, height: 24 }} />} label="Platform Ticket" />
+                    <CustomTab icon={<img src="/season_ticket_uts.png" alt="Icon" style={{ width: 24, height: 24 }} />} label="Season Ticket" />
+                </CustomTabs>
+            </Card>
+            <div className="homeBody">
+                {value == 0 ?
+                    "one" : value == 1 ? "two" : value == 2 ? "three" : value == 3 ? "four" : "five"
+                }
+            </div>
+            <div className='helpContainer'>
+                <p>Help</p>
+                <div className="help">
+                    <ContactSupportIcon />
+                </div>
+            </div>
+            <Footer version={value} />
+        </div>
+    )
+}
+
+export default Home
