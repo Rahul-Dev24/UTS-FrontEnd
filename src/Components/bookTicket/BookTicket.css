@@ -1,0 +1,56 @@
+.bookTicketContainer {
+    width: 97%;
+
+}
+
+.bookTicketContainer .top {
+    margin-top: 10px;
+    background-image: url('titles_bg_uts.png');
+    overflow: hidden;
+    padding: 5px 15px;
+    color: #fff;
+}
+
+.bookTicketContainer .cardBody {
+    padding: 8px;
+}
+
+.bookTicketContainer .radioGroup,
+.radioLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookTicketContainer .radioLabel span {
+    margin-left: 4px;
+    /* Adjust as needed */
+    margin-right: 4px;
+    /* Adjust as needed */
+}
+
+.bookTicketContainer .App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -25px;
+}
+
+.bookTicketContainer .disclamer {
+    font-size: 0.4rem;
+    padding: 0.5rem;
+    border-radius: 0%;
+}
+
+.bookTicketContainer .stationInputs {
+    display: flex;
+    align-items: center;
+}
+
+.stationInputs .left,
+.stationInputs .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

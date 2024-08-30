@@ -1,0 +1,30 @@
+.searchContainer {
+    width: 100%;
+}
+
+.searchContainer .top {
+    padding: 10px 4px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: url('/titles_bg_uts.png');
+}
+
+.searchContainer .searchBody {
+    padding: 10px 10px 0 10px;
+}
+
+.searchContainer .body {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+.searchContainer .recentSection {
+    padding: 0 10px;
+}
+
+
+.searchContainer .searchList {
+    padding: 0 10px;
+}
