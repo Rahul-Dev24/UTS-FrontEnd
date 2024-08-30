@@ -5,7 +5,7 @@
 
 .bookTicketContainer .top {
     margin-top: 10px;
-    background-image: url('titles_bg_uts.png');
+    background: url('/titles_bg_uts.png');
     overflow: hidden;
     padding: 5px 15px;
     color: #fff;
