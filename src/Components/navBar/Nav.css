@@ -21,7 +21,12 @@
     justify-content: center;
     gap: 8px;
 }
-
+.navContainer .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
 .navContainer .left .containt h4 {
     font-weight: bold;
 }
