@@ -37,9 +37,10 @@
 }
 
 .bookTicketContainer .disclamer {
-    font-size: 0.4rem;
+    font-size: 0.7rem;
     padding: 0.5rem;
     border-radius: 0%;
+    list-style: none;
 }
 
 .bookTicketContainer .stationInputs {
