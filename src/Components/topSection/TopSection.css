@@ -1,3 +1,7 @@
+.topSectionContainer{
+    margin-bottom: 13px;
+}
+
 .topSectionContainer .row {
     display: grid;
     grid-template-columns: 32.5% 32.5% 32.5%;

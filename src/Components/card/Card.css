@@ -1,0 +1,28 @@
+.cardContainer {
+    width: 100vw;
+}
+.cardContainer .top {
+    background: url('/titles_bg_uts.png');
+    object-fit:cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding: 5px 15px;
+    color: #fff;
+}
+.cardContainer .cardBody {
+    margin: auto;
+    width: 95%;
+    height: fit-content;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.cardContainer .cardBody .disclamer {
+    font-size: 0.52rem;
+    padding: 0.5rem;
+    border-radius: 0%;
+    list-style: none;
+}

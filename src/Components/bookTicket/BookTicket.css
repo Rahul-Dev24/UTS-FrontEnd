@@ -6,6 +6,9 @@
 .bookTicketContainer .top {
     margin-top: 10px;
     background: url('/titles_bg_uts.png');
+    object-fit:cover;
+    background-position:center;
+    background-repeat: no-repeat;
     overflow: hidden;
     padding: 5px 15px;
     color: #fff;
@@ -37,7 +40,7 @@
 }
 
 .bookTicketContainer .disclamer {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     padding: 0.5rem;
     border-radius: 0%;
     list-style: none;

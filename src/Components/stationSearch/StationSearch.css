@@ -8,6 +8,9 @@
     align-items: center;
     gap: 24px;
     background: url('/titles_bg_uts.png');
+    object-fit:cover;
+    background-position:center;
+    background-repeat: no-repeat;
 }
 
 .searchContainer .searchBody {

@@ -43,7 +43,7 @@ const GetFare = () => {
   let amount = 15;
   return (
     <div className="fareContainer">
-      <div className="top">
+      <div className="top" style={{ height: "65px" }}>
         <Nav language={false} />
       </div>
 

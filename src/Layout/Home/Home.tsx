@@ -5,9 +5,13 @@ import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import "./Home.css";
 import Footer from "../../Components/footer/Footer";
 import BookTicket from "../../Components/bookTicket/BookTicket";
+import TopSection from "../../Components/topSection/TopSection";
+import CustomCard from "../../Components/card/CustomCard";
 
 const Home = () => {
   const [value, setValue] = useState(0);
+  let QR_Object = { key: "QRBooking" };
+  let Quick_obj = { key: "QuickBooking" };
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     let val: any = event;
@@ -109,13 +113,14 @@ const Home = () => {
           />
         </CustomTabs>
       </Card>
+      <TopSection />
       <div className="homeBody">
         {value == 0 ? (
           <BookTicket />
         ) : value == 1 ? (
-          "two"
+          <CustomCard message={"QR Booking"} obj={QR_Object} />
         ) : value == 2 ? (
-          "three"
+          <CustomCard message={"QR Booking"} obj={Quick_obj} />
         ) : value == 3 ? (
           "four"
         ) : (

@@ -1,12 +1,14 @@
 .navContainer {
     width: 100%;
     background-image: url(/titles_bg_uts.png);
-    background-size: cover;
+    object-fit:cover;
+    background-position:center;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 8px 15px;
+    margin-top: -4px;
 }
 
 .navContainer .left .containt {
