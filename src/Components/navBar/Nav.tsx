@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./Nav.css";
 import { Menu, MenuItem } from "@mui/material";
 
-const Nav = ({ language }) => {
+const Nav: React.FC<{ language: boolean }> = ({ language }) => {
   const [menu, setMenu] = useState<null | HTMLElement>(null);
   const open = Boolean(menu);
   const handleClick = (event: any) => {
