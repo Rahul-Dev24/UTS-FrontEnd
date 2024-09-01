@@ -12,6 +12,8 @@ const Home = () => {
   const [value, setValue] = useState(0);
   let QR_Object = { key: "QRBooking" };
   let Quick_obj = { key: "QuickBooking" };
+  let PlatForm_obj = { key: "PlatFormTicket" };
+  let Season_obj = { key: "SeasonTicket" };
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     let val: any = event;
@@ -53,7 +55,7 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <Nav language={true} />
-      <Card sx={{ mt: 1, borderRadius: 0 }}>
+      <Card sx={{ mt: 1, borderRadius: 0, position: "sticky", top: "58px" }}>
         <CustomTabs
           value={value}
           onChange={handleChange}
@@ -120,11 +122,11 @@ const Home = () => {
         ) : value == 1 ? (
           <CustomCard message={"QR Booking"} obj={QR_Object} />
         ) : value == 2 ? (
-          <CustomCard message={"QR Booking"} obj={Quick_obj} />
+          <CustomCard message={"QUICK Booking"} obj={Quick_obj} />
         ) : value == 3 ? (
-          "four"
+          <CustomCard message={"Platform Booking"} obj={PlatForm_obj} />
         ) : (
-          "five"
+          <CustomCard message={"SEASON Booking"} obj={Season_obj} />
         )}
       </div>
       <div className="helpContainer">

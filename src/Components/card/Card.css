@@ -7,7 +7,7 @@
     background-position:center;
     background-repeat: no-repeat;
     overflow: hidden;
-    padding: 5px 15px;
+    padding: 10px 15px;
     color: #fff;
 }
 .cardContainer .cardBody {
@@ -20,8 +20,12 @@
     justify-content: center;
     flex-direction: column;
 }
+.platForm{
+    width: 100%;
+    margin-top: -5px;
+}
 .cardContainer .cardBody .disclamer {
-    font-size: 0.52rem;
+    font-size: 0.47rem;
     padding: 0.5rem;
     border-radius: 0%;
     list-style: none;
