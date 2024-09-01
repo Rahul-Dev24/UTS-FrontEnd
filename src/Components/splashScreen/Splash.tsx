@@ -7,7 +7,7 @@ const Splash = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             navigate('/home');
-        }, 1000);
+        }, 3000);
 
         // Cleanup timeout if the component is unmounted before the timeout completes
         return () => clearTimeout(timer);
