@@ -8,9 +8,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 8px 15px;
-    margin-top: -4px;
+    margin-top: -3px;
     position: sticky;
-    top: -4px;
+    top: -3px;
     z-index: 20;
 }
 
