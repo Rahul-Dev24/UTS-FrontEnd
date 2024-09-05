@@ -102,6 +102,16 @@ const BookTicket = () => {
       depart: Encryption(searchStationObj?.depart),
       goTo: Encryption(searchStationObj?.goTo),
     });
+
+    if (url) {
+      const urlData = Decryption(url);
+      if (urlData?.key == "source") {
+        sessionStorage.setItem("source", JSON.stringify(urlData));
+      }
+      if (urlData?.key == "destination") {
+        sessionStorage.setItem("destination", JSON.stringify(urlData));
+      }
+    }
     // Cleanup function to reset state or perform any necessary cleanups
     return () => {
       setRadioSelectedValue("");
@@ -115,16 +125,6 @@ const BookTicket = () => {
 
     if (sr) setSource(JSON.parse(sr));
     if (ds) setDistination(JSON.parse(ds));
-
-    if (url) {
-      const urlData = Decryption(url);
-      if (urlData?.key == "source") {
-        sessionStorage.setItem("source", JSON.stringify(urlData));
-      }
-      if (urlData?.key == "destination") {
-        sessionStorage.setItem("destination", JSON.stringify(urlData));
-      }
-    }
   }, [url]);
 
   return (
@@ -157,7 +157,7 @@ const BookTicket = () => {
                   />
                 }
                 label={
-                  <span className="radioLabel" style={{ fontSize: "2.5vw" }}>
+                  <span className="radioLabel" style={{ fontSize: "2.6vw" }}>
                     Book & Travel (Paperless)
                   </span>
                 }
@@ -177,7 +177,7 @@ const BookTicket = () => {
                   />
                 }
                 label={
-                  <span className="radioLabel" style={{ fontSize: "2.5vw" }}>
+                  <span className="radioLabel" style={{ fontSize: "2.6vw" }}>
                     Book & Print (Paper)
                   </span>
                 }
