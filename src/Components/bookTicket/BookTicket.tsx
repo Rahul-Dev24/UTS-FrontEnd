@@ -95,12 +95,6 @@ const BookTicket = () => {
   };
   useEffect(() => {
     const storedRadioValue = sessionStorage.getItem("radioValue");
-    const sr = sessionStorage?.getItem("source");
-    const ds = sessionStorage?.getItem("destination");
-
-    if (sr) setSource(JSON.parse(sr));
-    if (ds) setDistination(JSON.parse(ds));
-
     if (storedRadioValue) {
       setRadioSelectedValue(JSON.parse(storedRadioValue));
     }
@@ -108,6 +102,19 @@ const BookTicket = () => {
       depart: Encryption(searchStationObj?.depart),
       goTo: Encryption(searchStationObj?.goTo),
     });
+    // Cleanup function to reset state or perform any necessary cleanups
+    return () => {
+      setRadioSelectedValue("");
+      setEncodeUrl(undefined);
+    };
+  }, []);
+
+  useEffect(() => {
+    const sr = sessionStorage?.getItem("source");
+    const ds = sessionStorage?.getItem("destination");
+
+    if (sr) setSource(JSON.parse(sr));
+    if (ds) setDistination(JSON.parse(ds));
 
     if (url) {
       const urlData = Decryption(url);
@@ -118,13 +125,7 @@ const BookTicket = () => {
         sessionStorage.setItem("destination", JSON.stringify(urlData));
       }
     }
-
-    // Cleanup function to reset state or perform any necessary cleanups
-    return () => {
-      setRadioSelectedValue("");
-      setEncodeUrl(undefined);
-    };
-  }, []);
+  }, [url]);
 
   return (
     <div className="bookTicketContainer">
