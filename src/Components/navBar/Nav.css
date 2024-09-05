@@ -7,11 +7,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 15px;
-    margin-top: -5px;
+    padding: 0px 15px;
     position: sticky;
-    top: -5px;
+    top: 0;
     z-index: 20;
+    box-sizing: border-box;
 }
 
 .navContainer .left .containt {
