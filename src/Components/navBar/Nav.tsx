@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Nav.css";
 import { Menu, MenuItem } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Nav: React.FC<{ language: boolean }> = ({ language }) => {
   const [menu, setMenu] = useState<null | HTMLElement>(null);
@@ -29,9 +30,11 @@ const Nav: React.FC<{ language: boolean }> = ({ language }) => {
               <img src="/language.png" width={45} height={50} />
             </div>
           )}
-          <div className="login">
-            <img src="/login_btn_uts.png" width={35} height={35} />
-          </div>
+          <Link to="/login">
+            <div className="login">
+              <img src="/login_btn_uts.png" width={35} height={35} />
+            </div>
+          </Link>
           <div className="menu" onClick={handleClick}>
             <span>.</span>
             <span>.</span>

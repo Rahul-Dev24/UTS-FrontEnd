@@ -1,0 +1,18 @@
+.loginContainer{
+display: flex;
+flex-direction: column;
+align-items: center;
+/* position: relative; */
+}
+.loginContainer .loginfooter{
+    background-color: #ff6f00;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+    padding: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    border-radius: 50px 50px 0 0;
+}
