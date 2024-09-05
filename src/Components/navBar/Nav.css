@@ -8,9 +8,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 8px 15px;
-    margin-top: -4px;
+    margin-top: -5px;
     position: sticky;
-    top: -4px;
+    top: -5px;
     z-index: 20;
 }
 
@@ -18,6 +18,10 @@
     color: #fff;
     font-family: 'moon', sans-serif;
     line-height: 18px;
+}
+.navContainer .left .containt p{
+    font-size: 20px;
+    font-family: 'roboto_m', sans-serif;
 }
 
 .navContainer .left {

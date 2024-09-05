@@ -120,13 +120,13 @@ const Home = () => {
         {value == 0 ? (
           <BookTicket />
         ) : value == 1 ? (
-          <CustomCard message={"QR Booking"} obj={QR_Object} />
+          <CustomCard message={"QR BOOKING"} obj={QR_Object} />
         ) : value == 2 ? (
-          <CustomCard message={"QUICK Booking"} obj={Quick_obj} />
+          <CustomCard message={"QUICK BOOKING"} obj={Quick_obj} />
         ) : value == 3 ? (
-          <CustomCard message={"Platform Booking"} obj={PlatForm_obj} />
+          <CustomCard message={"Platform BOOKING"} obj={PlatForm_obj} />
         ) : (
-          <CustomCard message={"SEASON Booking"} obj={Season_obj} />
+          <CustomCard message={"SEASON BOOKING"} obj={Season_obj} />
         )}
       </div>
       <div className="helpContainer">

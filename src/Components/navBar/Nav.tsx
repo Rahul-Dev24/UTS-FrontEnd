@@ -26,11 +26,11 @@ const Nav: React.FC<{ language: boolean }> = ({ language }) => {
         <div className="right">
           {language && (
             <div onClick={handleClick} className="language">
-              <img src="/language.png" width={40} height={45} />
+              <img src="/language.png" width={45} height={50} />
             </div>
           )}
           <div className="login">
-            <img src="/login_btn_uts.png" width={30} height={30} />
+            <img src="/login_btn_uts.png" width={35} height={35} />
           </div>
           <div className="menu" onClick={handleClick}>
             <span>.</span>

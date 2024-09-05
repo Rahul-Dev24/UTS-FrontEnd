@@ -1,10 +1,9 @@
 .bookTicketContainer {
     width: 97%;
-
+    font-family: roboto_m !important;
 }
 
 .bookTicketContainer .top {
-    margin-top: 10px;
     background: url('/titles_bg_uts.png');
     object-fit:cover;
     background-position:center;
@@ -40,7 +39,7 @@
 }
 
 .bookTicketContainer .disclamer {
-    font-size: 0.5rem;
+    font-size: 0.6rem;
     padding: 0.5rem;
     border-radius: 0%;
     list-style: none;

@@ -26,13 +26,15 @@ interface StationInput {
 
 const BookTicket = () => {
   const [radioSelectedValue, setRadioSelectedValue] = useState("");
+  const [source, setSource] = useState<any>();
+  const [distination, setDistination] = useState<any>();
+
   const [enCodeUrl, setEncodeUrl] = useState<{
     depart: string;
     goTo: string;
   }>();
   const [message, setMessage] = useState<any>("");
 
-  const [paramsObj, setParamsObj] = useState<any>();
   const navigator = useNavigate();
   const { url } = useParams<any>();
 
@@ -60,7 +62,10 @@ const BookTicket = () => {
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     sessionStorage.setItem("radioValue", JSON.stringify(event.target.value));
     setRadioSelectedValue(event.target.value);
-    setParamsObj({});
+    sessionStorage.setItem("source", JSON.stringify({}));
+    sessionStorage.setItem("destination", JSON.stringify({}));
+    setSource(null);
+    setDistination(null);
   };
   const getSearchPage = (key: string) => {
     if (!radioSelectedValue) {
@@ -76,20 +81,26 @@ const BookTicket = () => {
   };
 
   const getFare = () => {
-    if (!paramsObj || !radioSelectedValue) {
+    if (!source?.name || !distination?.name || !radioSelectedValue) {
       if (!message) setMessage("Select booking mode to proceed further");
       return message && setMessage("");
     }
     navigator(`../getFare`);
   };
   const getNextTrain = () => {
-    if (!paramsObj || !radioSelectedValue) {
+    if ((!source && !distination) || !radioSelectedValue) {
       if (!message) setMessage("Select booking mode to proceed further");
       return message && setMessage("");
     }
   };
   useEffect(() => {
     const storedRadioValue = sessionStorage.getItem("radioValue");
+    const sr = sessionStorage?.getItem("source");
+    const ds = sessionStorage?.getItem("destination");
+
+    if (sr) setSource(JSON.parse(sr));
+    if (ds) setDistination(JSON.parse(ds));
+
     if (storedRadioValue) {
       setRadioSelectedValue(JSON.parse(storedRadioValue));
     }
@@ -97,15 +108,21 @@ const BookTicket = () => {
       depart: Encryption(searchStationObj?.depart),
       goTo: Encryption(searchStationObj?.goTo),
     });
+
     if (url) {
-      setParamsObj(Decryption(url));
+      const urlData = Decryption(url);
+      if (urlData?.key == "source") {
+        sessionStorage.setItem("source", JSON.stringify(urlData));
+      }
+      if (urlData?.key == "destination") {
+        sessionStorage.setItem("destination", JSON.stringify(urlData));
+      }
     }
+
     // Cleanup function to reset state or perform any necessary cleanups
     return () => {
-      // setRadioSelectedValue('');
-      // setEncodeUrl(undefined);
-      // setRadioChecked(false);
-      // setParamsObj(undefined);
+      setRadioSelectedValue("");
+      setEncodeUrl(undefined);
     };
   }, []);
 
@@ -132,7 +149,8 @@ const BookTicket = () => {
                   <Radio
                     sx={{
                       "& .MuiSvgIcon-root": {
-                        fontSize: 15,
+                        fontSize: 20,
+                        color: "#FF6F00",
                       },
                     }}
                   />
@@ -151,7 +169,8 @@ const BookTicket = () => {
                   <Radio
                     sx={{
                       "& .MuiSvgIcon-root": {
-                        fontSize: 15,
+                        fontSize: 20,
+                        color: "#FF6F00",
                       },
                     }}
                   />
@@ -220,22 +239,20 @@ const BookTicket = () => {
               <Typography
                 variant="subtitle1"
                 align="center"
-                sx={{ fontSize: "0.8rem" }}
+                sx={{ fontSize: "0.9rem" }}
               >
                 Depart from
               </Typography>
-              <p style={{ textAlign: "center" }}>
-                {paramsObj && paramsObj?.key == "source"
-                  ? paramsObj?.code
-                  : "STN"}
+              <p style={{ textAlign: "center", fontSize: "1.1rem" }}>
+                {source && source?.key == "source" ? source?.code : "STN"}
               </p>
               <Typography
                 variant="body2"
                 align="center"
-                sx={{ fontSize: "0.6rem" }}
+                sx={{ fontSize: "0.7rem" }}
               >
-                {paramsObj && paramsObj?.key == "source"
-                  ? paramsObj?.name
+                {source && source?.key == "source"
+                  ? source?.name
                   : "Station Name"}
               </Typography>
               <Divider sx={{ marginY: 1, backgroundColor: "#FF7F50" }} />
@@ -267,29 +284,29 @@ const BookTicket = () => {
               <Typography
                 variant="subtitle1"
                 align="center"
-                sx={{ fontSize: "0.8rem" }}
+                sx={{ fontSize: "0.9rem" }}
               >
                 Going to
               </Typography>
-              <p style={{ textAlign: "center" }}>
-                {paramsObj && paramsObj?.key == "destination"
-                  ? paramsObj?.code
+              <p style={{ textAlign: "center", fontSize: "1.1rem" }}>
+                {distination && distination?.key == "destination"
+                  ? distination?.code
                   : "STN"}
               </p>
               <Typography
                 variant="body2"
                 align="center"
-                sx={{ fontSize: "0.6rem" }}
+                sx={{ fontSize: "0.7rem" }}
               >
-                {paramsObj && paramsObj?.key == "destination"
-                  ? paramsObj?.name
+                {distination && distination?.key == "destination"
+                  ? distination?.name
                   : "Station Name"}
               </Typography>
               <Divider sx={{ marginY: 1, backgroundColor: "#FF7F50" }} />
             </Grid>
           </Grid>
 
-          <Grid container spacing={2} sx={{ marginTop: 2 }}>
+          <Grid container spacing={2} sx={{ marginTop: 0 }}>
             <Grid item xs={6} onClick={() => getNextTrain()}>
               <Button
                 variant="contained"

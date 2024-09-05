@@ -112,7 +112,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                       <Radio
                         sx={{
                           "& .MuiSvgIcon-root": {
-                            fontSize: 15,
+                            fontSize: 20,
+                            color: "#ff6f00",
                           },
                         }}
                       />
@@ -134,7 +135,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                       <Radio
                         sx={{
                           "& .MuiSvgIcon-root": {
-                            fontSize: 15,
+                            fontSize: 20,
+                            color: "#ff6f00",
                           },
                         }}
                       />
@@ -313,7 +315,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                         <Radio
                           sx={{
                             "& .MuiSvgIcon-root": {
-                              fontSize: 15,
+                              fontSize: 20,
+                              color: "#FF6F00",
                             },
                           }}
                         />
@@ -335,7 +338,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                         <Radio
                           sx={{
                             "& .MuiSvgIcon-root": {
-                              fontSize: 15,
+                              fontSize: 20,
+                              color: "#FF6F00",
                             },
                           }}
                         />
