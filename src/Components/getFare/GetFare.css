@@ -1,0 +1,60 @@
+.fareContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.fareContainer .top {
+    width: 100%;
+    padding: 7px 15px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: url('/titles_bg_uts.png');
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fareContainer .fareBody {
+    margin-top: 12px;
+    width: 95%;
+    border-radius: 10px;
+}
+
+.fareContainer .fareBody .cardBody {
+    width: 100%;
+}
+
+.fareContainer .fareBody .cardBody .btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fareContainer .fareBody .cardBody .line {
+    width: 100%;
+    height: 1px;
+    background-color: #dadada;
+    margin-top: 5px;
+    margin-bottom: 14px;
+}
+
+.fareContainer .fareBody .cardBody .anchorTag {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    color: #FF6F00;
+}
+
+.fareContainer .fareBody .top {
+    display: flex;
+    color: #fff;
+    padding: 10px 15px;
+    overflow: hidden;
+}
