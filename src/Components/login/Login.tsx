@@ -248,12 +248,12 @@ const Login: React.FC = () => {
           </div>
           <div className="line"></div>
           <div className="helpline">
-            <img src="/helpline_uts.png" alt="" width={30} height={30} />
+            <img src="/helpline_uts.png" alt="" width={26} height={25} />
             <p>Helpline</p>
           </div>
           <div className="line"></div>
           <div className="faq">
-            <img src="/faq_uts.png" alt="" width={30} height={28} />
+            <img src="/faq_uts.png" alt="" width={26} height={25} />
             <p>FAQs</p>
           </div>
         </div>
