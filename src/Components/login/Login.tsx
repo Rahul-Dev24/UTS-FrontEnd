@@ -13,8 +13,8 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/system";
 import Nav from "../navBar/Nav";
-import "./Login.css"
-
+import "./Login.css";
+import axios from "axios";
 
 const LoginContainer = styled(Container)({
   backgroundColor: "#f9f9f9",
@@ -27,19 +27,55 @@ const LoginContainer = styled(Container)({
 
 const Login: React.FC = () => {
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const [number, setNumber] = useState<number>();
-  const [password, setPassword] = useState<string>('');
+  const [pNumber, setNumber] = useState<number>();
+  const [password, setPassword] = useState<string>("");
   // const [radioVal, setRadioVal] = useState<string>();
 
+  const loginUser = async (
+    phoneNo: number | undefined,
+    password: string
+  ): Promise<any> => {
+    try {
+      const response = await axios.post(
+        `https://uts-dev.onrender.com/api/auth/v1/login`,
+        {
+          phoneNo,
+          password,
+        }
+      );
 
+      // Return the response data
+      return response.data;
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        // Server-side error
+        throw new Error(
+          `Error ${error.response.status}: ${error.response.data.message}`
+        );
+      } else {
+        // Client-side or network error
+        throw new Error("An unexpected error occurred");
+      }
+    }
+  };
+
+  const getLogin = async () => {
+    loginUser(pNumber, password)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const handleNumber = (event: any) => {
     setNumber(event.target.value);
-  }
+  };
 
   const handlePassword = (event: any) => {
     setPassword(event?.target?.value);
-  }
+  };
 
   useEffect(() => {
     if (searchInputRef.current) {
@@ -59,7 +95,14 @@ const Login: React.FC = () => {
         <Nav language={false} />
         <Card sx={{ width: "80%", marginTop: "2rem" }}>
           <LoginContainer>
-            <Typography variant="h5" sx={{ color: "#ff7e5f", marginTop: "-1rem", marginBottom: "1rem" }}>
+            <Typography
+              variant="h5"
+              sx={{
+                color: "#ff7e5f",
+                marginTop: "-1rem",
+                marginBottom: "1rem",
+              }}
+            >
               LOGIN WITH
             </Typography>
 
@@ -67,7 +110,7 @@ const Login: React.FC = () => {
               <RadioGroup row defaultValue="password" name="login-method">
                 <FormControlLabel
                   // checked={true}
-                  value={'password'}
+                  value={"password"}
                   control={
                     <Radio
                       sx={{
@@ -86,7 +129,7 @@ const Login: React.FC = () => {
                 />
                 <FormControlLabel
                   // checked={false}
-                  value={'otp'}
+                  value={"otp"}
                   control={
                     <Radio
                       sx={{
@@ -110,42 +153,42 @@ const Login: React.FC = () => {
                 fullWidth
                 id="outlined-error"
                 label="Mobile Number"
-                type="search"
+                type="number"
                 variant="filled"
                 inputRef={searchInputRef}
-                value={number}
+                value={pNumber}
                 onChange={handleNumber}
                 sx={{
-                  '& .MuiFilledInput-root': {
-                    backgroundColor: '#fff', // Background color of the input field
-                    '&:hover': {
-                      backgroundColor: 'transparent', // Background color on hover
+                  "& .MuiFilledInput-root": {
+                    backgroundColor: "#fff", // Background color of the input field
+                    "&:hover": {
+                      backgroundColor: "transparent", // Background color on hover
                     },
-                    '&.Mui-focused': {
-                      backgroundColor: 'transparent', // Background color when focused
+                    "&.Mui-focused": {
+                      backgroundColor: "transparent", // Background color when focused
                     },
                   },
-                  '& .MuiInputLabel-root': {
-                    color: '#666', // Default label color
+                  "& .MuiInputLabel-root": {
+                    color: "#666", // Default label color
                   },
-                  '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#fd5948', // Label color when focused
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "#fd5948", // Label color when focused
                   },
-                  '& .MuiInputLabel-root:hover': {
-                    color: '#fd5948', // Label color on hover
+                  "& .MuiInputLabel-root:hover": {
+                    color: "#fd5948", // Label color on hover
                   },
-                  '& .MuiFilledInput-underline:before': {
-                    borderBottomColor: '#fd5948', // Default underline color
+                  "& .MuiFilledInput-underline:before": {
+                    borderBottomColor: "#fd5948", // Default underline color
                   },
-                  '& .MuiFilledInput-underline:after': {
-                    borderBottomColor: '#ff5722', // Underline color when focused
+                  "& .MuiFilledInput-underline:after": {
+                    borderBottomColor: "#ff5722", // Underline color when focused
                   },
                 }}
                 InputLabelProps={{
-                  style: { color: '#ff5722' }, // Default label color
+                  style: { color: "#ff5722" }, // Default label color
                   sx: {
-                    '&.Mui-focused': { color: '#ff5722' }, // Label color when focused
-                    '&:hover': { color: '#ff5722' }, // Label color on hover
+                    "&.Mui-focused": { color: "#ff5722" }, // Label color when focused
+                    "&:hover": { color: "#ff5722" }, // Label color on hover
                   },
                 }}
               />
@@ -155,56 +198,59 @@ const Login: React.FC = () => {
                 fullWidth
                 id="outlined-error"
                 label="Password"
-                type="search"
+                type="password"
                 variant="filled"
                 value={password}
                 onChange={handlePassword}
                 sx={{
-                  '& .MuiFilledInput-root': {
-                    backgroundColor: 'transparent', // Background color of the input field
-                    '&:hover': {
-                      backgroundColor: 'transparent', // Background color on hover
+                  "& .MuiFilledInput-root": {
+                    backgroundColor: "transparent", // Background color of the input field
+                    "&:hover": {
+                      backgroundColor: "transparent", // Background color on hover
                     },
-                    '&.Mui-focused': {
-                      backgroundColor: 'transparent', // Background color when focused
+                    "&.Mui-focused": {
+                      backgroundColor: "transparent", // Background color when focused
                     },
                   },
-                  '& .MuiInputLabel-root': {
-                    color: '#000', // Default label color
+                  "& .MuiInputLabel-root": {
+                    color: "#000", // Default label color
                   },
-                  '& .MuiInputLabel-root.Mui-focused': {
-                    color: '#fd5948', // Label color when focused
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "#fd5948", // Label color when focused
                   },
-                  '& .MuiInputLabel-root:hover': {
-                    color: '#fd5948', // Label color on hover
+                  "& .MuiInputLabel-root:hover": {
+                    color: "#fd5948", // Label color on hover
                   },
-                  '& .MuiFilledInput-underline:before': {
-                    borderBottomColor: '#fd5948', // Default underline color
+                  "& .MuiFilledInput-underline:before": {
+                    borderBottomColor: "#fd5948", // Default underline color
                   },
-                  '& .MuiFilledInput-underline:after': {
-                    borderBottomColor: '#ff5722', // Underline color when focused
+                  "& .MuiFilledInput-underline:after": {
+                    borderBottomColor: "#ff5722", // Underline color when focused
                   },
                 }}
                 InputLabelProps={{
-                  style: { color: '#ff5722' }, // Default label color
+                  style: { color: "#ff5722" }, // Default label color
                   sx: {
-                    '&.Mui-focused': { color: '#ff5722' }, // Label color when focused
-                    '&:hover': { color: '#ff5722' }, // Label color on hover
+                    "&.Mui-focused": { color: "#ff5722" }, // Label color when focused
+                    "&:hover": { color: "#ff5722" }, // Label color on hover
                   },
                 }}
               />
             </Box>
 
-
             <div style={{ display: "flex", width: "100%", padding: "-10px" }}>
-
-              <Typography variant="body2" sx={{
-                color: "#ff7e5f", cursor: "pointer", textAlign: "right", width: "100%",
-              }}>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#ff7e5f",
+                  cursor: "pointer",
+                  textAlign: "right",
+                  width: "100%",
+                }}
+              >
                 Forgot Password?
               </Typography>
             </div>
-
 
             <Button
               fullWidth
@@ -217,6 +263,7 @@ const Login: React.FC = () => {
                 borderRadius: 21,
                 width: "80%",
               }}
+              onClick={getLogin}
             >
               BOOK TICKET
             </Button>
@@ -257,8 +304,7 @@ const Login: React.FC = () => {
             <p>FAQs</p>
           </div>
         </div>
-      </Box >
-
+      </Box>
     </>
   );
 };
