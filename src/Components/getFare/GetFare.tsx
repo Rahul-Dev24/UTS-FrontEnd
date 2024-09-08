@@ -16,6 +16,7 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Nav from "../navBar/Nav";
 import * as CommonJson from "../../assets/Common.json";
+import { keyframes } from "@mui/system";
 
 const theme = createTheme({
   palette: {
@@ -30,6 +31,18 @@ const theme = createTheme({
     fontSize: 12,
   },
 });
+// Define keyframes for the blinking effect
+const blink = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const GetFare = () => {
   const [adult, setAdult] = useState(1);
@@ -344,6 +357,7 @@ const GetFare = () => {
                         display: "block",
                         textAlign: "center",
                         fontSize: "0.8rem",
+                        animation: `${blink} 3s infinite`, // Apply the blinking animation
                       }}
                     >
                       JOURNEY SHOULD COMMENCE WITHIN 1 HOUR
