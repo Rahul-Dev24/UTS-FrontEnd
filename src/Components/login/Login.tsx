@@ -418,18 +418,20 @@ const Login: React.FC = () => {
                     },
                   }}
                 />
-                {cPassword &&
-                  (password == cPassword ? (
-                    <FormHelperText sx={{ color: "green", marginLeft: "1rem" }}>
-                      Password Matched
-                    </FormHelperText>
-                  ) : (
-                    <FormHelperText error sx={{ marginLeft: "1rem" }}>
-                      Password Mismatch
-                    </FormHelperText>
-                  ))}
               </Box>
             )}
+            <Box sx={{ mt: "-10px" }}>
+              {cPassword &&
+                (password == cPassword ? (
+                  <FormHelperText sx={{ color: "green", marginLeft: "1rem" }}>
+                    Password Matched
+                  </FormHelperText>
+                ) : (
+                  <FormHelperText error sx={{ marginLeft: "1rem" }}>
+                    Password Mismatch
+                  </FormHelperText>
+                ))}
+            </Box>
             {!isLogin && (
               <Box sx={{ mb: 2 }}>
                 <TextField
@@ -468,6 +470,10 @@ const Login: React.FC = () => {
                   }}
                   InputLabelProps={{
                     style: { color: "#ff5722" }, // Default label color
+                    sx: {
+                      "&.Mui-focused": { color: "#ff5722" }, // Label color when focused
+                      "&:hover": { color: "#ff5722" }, // Label color on hover
+                    },
                   }}
                 />
                 <Dialog
@@ -539,7 +545,7 @@ const Login: React.FC = () => {
                 <CalendarTextField
                   fullWidth
                   id="dob"
-                  // label="Date of Birth"
+                  label="Date of Birth"
                   type="date"
                   variant="filled"
                   value={dob}
