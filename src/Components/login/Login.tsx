@@ -133,28 +133,29 @@ const Login: React.FC = () => {
       // login
       loginUser(pNumber, password)
         .then((res) => {
-          localStorage.setItem("user", JSON.stringify(res));
-          setMessage("Login Successfull");
-          setLoading(res);
+          if (!res?.message) localStorage.setItem("user", JSON.stringify(res));
+          setMessage(res?.message ? res?.message : "Login Successfull");
+          setLoading(true);
           setTimeout(() => {
             navigator("/home");
-          }, 1000);
+          }, 1500);
         })
-        .catch(() => {
-          setMessage("Login Failed");
+        .catch((err) => {
+          setMessage(err?.message ? err?.message : "Login Failed");
+          setLoading(true);
         });
     } else {
       // regesteration
       if (name && gender && dob && pNumber && password) {
         registerUser()
           .then((res) => {
-            setMessage(res?.message);
-            if (res?.success) setIsLogin(true);
-            else setMessage("User Already Exist");
-            setLoading(res);
+            if (res?.message) setIsLogin(true);
+            setMessage(res?.message ? res?.message : "User Already Created");
+            setLoading(true);
           })
           .catch((err) => {
             setMessage(err?.message);
+            setLoading(true);
           });
       }
     }
