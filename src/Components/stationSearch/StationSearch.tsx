@@ -64,7 +64,7 @@ const StationSearch: React.FC = () => {
         const getAllStation = async () => {
             try {
                 const response = await axios.get(`https://uts-dev.onrender.com/api/auth/v1/searchStation?query=${searchTerm}`);
-                if (response?.data) setFilteredStations(response.data);
+                setFilteredStations(response.data);
             } catch (error) {
                 // console.log(error);
             }
