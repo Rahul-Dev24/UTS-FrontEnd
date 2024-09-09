@@ -16,6 +16,7 @@ import "./StationSearch.css"
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Decryption } from "../../utils/Decode";
 import { Encryption } from "../../utils/Encrypt";
+import axios from "axios";
 
 
 const allStations = [
@@ -59,6 +60,18 @@ const StationSearch: React.FC = () => {
     const obj: { label: string, key: string } = Decryption(url);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const getAllStation = async () => {
+            try {
+                const response = await axios.get(`https://uts-dev.onrender.com/api/auth/v1/searchStation?query=${searchTerm}`);
+                if (response?.data) setFilteredStations(response.data);
+            } catch (error) {
+                // console.log(error);
+            }
+        }
+        if (searchTerm) getAllStation();
+    }, [searchTerm]);
+
 
     const handleScroll = () => {
         if (scrollContainerRef.current) {
@@ -67,6 +80,7 @@ const StationSearch: React.FC = () => {
                 let width = (100 - scrollTop) + "%";
                 setRecentWidth({ width: width, height: "fit-content" });
             }
+            console.log(scrollTop);
         }
     };
 
@@ -81,12 +95,6 @@ const StationSearch: React.FC = () => {
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value.toUpperCase();
         setSearchTerm(value);
-
-        // Filter stations based on search term
-        const filtered = allStations.filter(station =>
-            station.name.includes(value) || station.code.includes(value)
-        );
-        setFilteredStations(filtered);
     };
 
     const handleSelectStation = (station: { name: string; code: string }) => {
