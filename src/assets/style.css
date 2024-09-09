@@ -1,0 +1,25 @@
+/* src/styles/fonts.css */
+
+/* Regular font */
+@font-face {
+    font-family: 'moon';
+    src: url('/fonts/moon_bold.otf') format('opentype');
+    /* url('/fonts/MyCustomFont-Regular.ttf') format('truetype'); */
+    /* font-weight: normal;
+    font-style: normal; */
+}
+
+/* Bold font */
+@font-face {
+    font-family: 'roboto_m';
+    src: url('/fonts/roboto_medium.ttf') format('truetype');
+    /* font-weight: bold;
+    font-style: normal; */
+}
+
+@font-face {
+    font-family: 'roboto_r';
+    src: url('/fonts/roboto_regular.ttf') format('truetype');
+    /* font-weight: bold;
+    font-style: normal; */
+}
