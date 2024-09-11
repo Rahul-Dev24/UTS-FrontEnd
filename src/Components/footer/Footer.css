@@ -1,0 +1,15 @@
+.footer {
+    position: sticky;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 0.9rem;
+    height: fit-content;
+    border-radius: 50px 50px 0 0;
+    overflow: hidden;
+    border-top: 0.5px solid #dadada;
+}
+
+.footer div {
+    color: #fd5948;
+}
