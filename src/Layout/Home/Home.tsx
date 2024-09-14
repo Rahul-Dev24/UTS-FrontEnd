@@ -8,6 +8,7 @@ import BookTicket from "../../Components/bookTicket/BookTicket";
 import TopSection from "../../Components/topSection/TopSection";
 import CustomCard from "../../Components/card/CustomCard";
 import { keyframes } from "@mui/system";
+import LocationPopup from "../../Components/location/LocationPopup";
 
 // Define keyframes for the blinking effect
 const blink = keyframes`
