@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <Nav language={true} />
-      {/* <LocationPopup /> */}
+       <LocationPopup /> 
 
       <Typography
         variant="caption"
