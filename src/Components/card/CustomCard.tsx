@@ -11,6 +11,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Snackbar,
 } from "@mui/material";
 import "./Card.css";
 import { useEffect, useRef, useState } from "react";
@@ -29,6 +30,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
   const [radioSelectedValue, setRadioSelectedValue] = useState("");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [tostMessage, setMessage] = useState<string>();
 
   const searchInputRef = useRef<HTMLInputElement>(null);
   const navicate = useNavigate();
@@ -39,20 +41,51 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
   };
 
   const getTicket = (key: string) => {
-    if (key === 'issueTicket') navicate('/getSessionTicket');
-    else if (key === 'renewTicket') setLoading(false);
-  }
+    if (key === "issueTicket") {
+      if (radioSelectedValue) navicate("/getSessionTicket");
+      else setMessage("Select booking mode to proceed further");
+    } else if (key === "renewTicket") {
+      if (radioSelectedValue) setLoading(false);
+      else setMessage("Select booking mode to proceed further");
+    }
+  };
 
   useEffect(() => {
     if (searchInputRef.current) {
       searchInputRef.current.focus();
     }
-
-
   }, []);
   return (
     <div className="cardContainer">
-      <ProgressBar message={"Fetching Your current location..."} isLoad={loading} />
+      <ProgressBar
+        message={"Fetching Your current location..."}
+        isLoad={loading}
+      />
+      {tostMessage && (
+        <div className="toast">
+          <Snackbar
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            open={tostMessage !== ""}
+            onClose={() =>
+              setTimeout(() => {
+                setMessage("");
+              }, 3000)
+            }
+            message={tostMessage}
+            autoHideDuration={3000}
+            ContentProps={{
+              sx: {
+                backgroundColor: "white", // Change background color to white
+                color: "black", // Adjust text color for contrast
+                maxWidth: 300,
+                marginBottom: "5rem",
+                textAlign: "center", // Center the message text
+                justifyContent: "center",
+              },
+            }}
+          />
+        </div>
+      )}
       <Card sx={{ width: "94%", margin: "auto" }}>
         <div className="top">
           <p>{message}</p>
@@ -66,7 +99,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                 color="primary"
                 sx={{
                   mt: 2,
-                  background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                  background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                   color: "#fff",
                   borderRadius: 21,
                   width: "75%",
@@ -81,7 +114,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                 color="primary"
                 sx={{
                   mt: 2,
-                  background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                  background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                   color: "#fff",
                   borderRadius: 21,
                   width: "75%",
@@ -97,7 +130,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                 sx={{
                   mt: 2,
                   mb: 2,
-                  background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                  background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                   color: "#fff",
                   borderRadius: 21,
                   width: "75%",
@@ -125,8 +158,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                       <Radio
                         sx={{
                           "& .MuiSvgIcon-root": {
-                            fontSize: 20,
-                            color: "#ff6f00",
+                            fontSize: 22,
+                            color: "#ff5722",
                           },
                         }}
                       />
@@ -134,7 +167,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                     label={
                       <span
                         className="radioLabel"
-                        style={{ fontSize: "2.3vw" }}
+                        style={{ fontSize: "2.7vw" }}
                       >
                         Book & Travel (Paperless)
                       </span>
@@ -148,8 +181,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                       <Radio
                         sx={{
                           "& .MuiSvgIcon-root": {
-                            fontSize: 20,
-                            color: "#ff6f00",
+                            fontSize: 22,
+                            color: "#ff5722",
                           },
                         }}
                       />
@@ -157,7 +190,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                     label={
                       <span
                         className="radioLabel"
-                        style={{ fontSize: "2.3vw" }}
+                        style={{ fontSize: "2.7vw" }}
                       >
                         Book & Print (Paper)
                       </span>
@@ -264,7 +297,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                             <MenuItem
                               value={data?.value}
                               key={index}
-                              sx={{ borderBottom: "0.7px solid #FF6F00" }}
+                              sx={{ borderBottom: "0.7px solid #ff5722" }}
                             >
                               {data?.label}
                             </MenuItem>
@@ -301,7 +334,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                 sx={{
                   mt: 2,
                   mb: 2,
-                  background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                  background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                   color: "#fff",
                   borderRadius: 21,
                   width: "60%",
@@ -328,8 +361,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                         <Radio
                           sx={{
                             "& .MuiSvgIcon-root": {
-                              fontSize: 20,
-                              color: "#FF6F00",
+                              fontSize: 22,
+                              color: "#ff5722",
                             },
                           }}
                         />
@@ -337,7 +370,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                       label={
                         <span
                           className="radioLabel"
-                          style={{ fontSize: "2.3vw" }}
+                          style={{ fontSize: "2.7vw" }}
                         >
                           Book & Travel (Paperless)
                         </span>
@@ -351,8 +384,8 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                         <Radio
                           sx={{
                             "& .MuiSvgIcon-root": {
-                              fontSize: 20,
-                              color: "#FF6F00",
+                              fontSize: 22,
+                              color: "#ff5722",
                             },
                           }}
                         />
@@ -360,7 +393,7 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                       label={
                         <span
                           className="radioLabel"
-                          style={{ fontSize: "2.3vw" }}
+                          style={{ fontSize: "2.7vw" }}
                         >
                           Book & Print (Paper)
                         </span>
@@ -402,11 +435,11 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    onClick={() => getTicket('issueTicket')}
+                    onClick={() => getTicket("issueTicket")}
                     sx={{
                       mt: 2,
                       mb: 2,
-                      background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                      background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                       color: "#fff",
                       borderRadius: 21,
                       width: "60%",
@@ -414,16 +447,16 @@ const CustomCard: React.FC<Prop> = ({ message, obj }) => {
                   >
                     ISSUE TICKET
                   </Button>
-                  <span style={{ color: "#FF6F00" }}>OR</span>
+                  <span style={{ color: "#ff5722" }}>OR</span>
                   <Button
                     fullWidth
                     variant="contained"
                     color="primary"
-                    onClick={() => getTicket('renewTicket')}
+                    onClick={() => getTicket("renewTicket")}
                     sx={{
                       mt: 2,
                       mb: 2,
-                      background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                      background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                       color: "#fff",
                       borderRadius: 21,
                       width: "60%",

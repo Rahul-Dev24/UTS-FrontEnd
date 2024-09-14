@@ -12,6 +12,7 @@ const Footer: React.FC<{ version: number }> = ({ version }) => {
           padding: "5px",
           flexDirection: "column",
           gap: "8px",
+          lineHeight: "1rem",
         }}
       >
         {version == 0 && <div>G.16.57 (15.1.36)</div>}

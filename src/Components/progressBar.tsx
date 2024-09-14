@@ -25,6 +25,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ message, isLoad }) => {
             justifyContent: "center",
             width: "100%", // Full width
             position: "fixed",
+            top: "2rem",
             zIndex: "999",
             height: "100vh",
             backgroundColor: "#dadada20",
@@ -43,7 +44,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ message, isLoad }) => {
             <CircularProgress
               disableShrink
               sx={{
-                color: "#ff6f00", // Change this to match your theme color
+                color: "#ff5722", // Change this to match your theme color
               }}
             />
 

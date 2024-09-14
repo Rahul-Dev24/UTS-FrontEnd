@@ -41,13 +41,13 @@ const CalendarTextField = styled(TextField)(() => ({
     color: "#000", // Default label color
   },
   "& .MuiInputLabel-root.Mui-focused": {
-    color: "#ff6f00", // Label color when focused
+    color: "#ff5722", // Label color when focused
   },
   "& .MuiInput-underline:before": {
-    borderBottomColor: "#ff6f00", // Default underline color
+    borderBottomColor: "#ff5722", // Default underline color
   },
   "& .MuiInput-underline:after": {
-    borderBottomColor: "#ff6f00", // Underline color when focused
+    borderBottomColor: "#ff5722", // Underline color when focused
   },
   "& .MuiFilledInput-root": {
     backgroundColor: "transparent", // Background color of the input field
@@ -173,25 +173,31 @@ const Login: React.FC = () => {
         message="Fetching Your current location..."
         isLoad={loading}
       />
-      {message && <div className="toast">
-        <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-          open={message !== ''}
-          onClose={() => setTimeout(() => { setMessage('') }, 3000)}
-          message={message}
-          autoHideDuration={3000}
-          ContentProps={{
-            sx: {
-              backgroundColor: 'white', // Change background color to white
-              color: 'black', // Adjust text color for contrast
-              maxWidth: 300,
-              marginBottom: "5rem",
-              textAlign: 'center', // Center the message text
-              justifyContent: 'center',
+      {message && (
+        <div className="toast">
+          <Snackbar
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            open={message !== ""}
+            onClose={() =>
+              setTimeout(() => {
+                setMessage("");
+              }, 3000)
             }
-          }}
-        />
-      </div>}
+            message={message}
+            autoHideDuration={3000}
+            ContentProps={{
+              sx: {
+                backgroundColor: "white", // Change background color to white
+                color: "black", // Adjust text color for contrast
+                maxWidth: 300,
+                marginBottom: "5rem",
+                textAlign: "center", // Center the message text
+                justifyContent: "center",
+              },
+            }}
+          />
+        </div>
+      )}
       <Box
         sx={{
           display: "flex",
@@ -225,7 +231,7 @@ const Login: React.FC = () => {
                         sx={{
                           "& .MuiSvgIcon-root": {
                             fontSize: 25,
-                            color: "#FF6F00",
+                            color: "#ff5722",
                           },
                         }}
                       />
@@ -244,7 +250,7 @@ const Login: React.FC = () => {
                         sx={{
                           "& .MuiSvgIcon-root": {
                             fontSize: 25,
-                            color: "#FF6F00",
+                            color: "#ff5722",
                           },
                         }}
                       />
@@ -506,7 +512,7 @@ const Login: React.FC = () => {
                     },
                   }}
                 >
-                  <DialogTitle sx={{ color: "#ff6f00" }}>
+                  <DialogTitle sx={{ color: "#ff5722" }}>
                     Select Gender
                   </DialogTitle>
                   <DialogContent>
@@ -545,7 +551,7 @@ const Login: React.FC = () => {
                       color="primary"
                       sx={{
                         mt: 2,
-                        background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                        background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                         color: "#fff",
                         borderRadius: 21,
                         width: "50%",
@@ -622,7 +628,7 @@ const Login: React.FC = () => {
               color="primary"
               sx={{
                 mt: 2,
-                background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                 color: "#fff",
                 borderRadius: 21,
                 width: "80%",
@@ -645,7 +651,7 @@ const Login: React.FC = () => {
               color="primary"
               sx={{
                 mt: 2,
-                background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                 color: "#fff",
                 borderRadius: 21,
                 width: "50%",

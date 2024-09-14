@@ -129,25 +129,31 @@ const BookTicket = () => {
 
   return (
     <div className="bookTicketContainer">
-      {message && <div className="toast">
-        <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-          open={message !== ''}
-          onClose={() => setTimeout(() => { setMessage('') }, 3000)}
-          message={message}
-          autoHideDuration={3000}
-          ContentProps={{
-            sx: {
-              backgroundColor: 'white', // Change background color to white
-              color: 'black', // Adjust text color for contrast
-              maxWidth: 300,
-              marginBottom: "5rem",
-              textAlign: 'center', // Center the message text
-              justifyContent: 'center',
+      {message && (
+        <div className="toast">
+          <Snackbar
+            anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            open={message !== ""}
+            onClose={() =>
+              setTimeout(() => {
+                setMessage("");
+              }, 3000)
             }
-          }}
-        />
-      </div>}
+            message={message}
+            autoHideDuration={3000}
+            ContentProps={{
+              sx: {
+                backgroundColor: "white", // Change background color to white
+                color: "black", // Adjust text color for contrast
+                maxWidth: 300,
+                marginBottom: "5rem",
+                textAlign: "center", // Center the message text
+                justifyContent: "center",
+              },
+            }}
+          />
+        </div>
+      )}
       <Card>
         <div className="top">
           <p>NORMAL BOOKING</p>
@@ -168,14 +174,14 @@ const BookTicket = () => {
                   <Radio
                     sx={{
                       "& .MuiSvgIcon-root": {
-                        fontSize: 20,
-                        color: "#FF6F00",
+                        fontSize: 22,
+                        color: "#ff5722",
                       },
                     }}
                   />
                 }
                 label={
-                  <span className="radioLabel" style={{ fontSize: "2.6vw" }}>
+                  <span className="radioLabel" style={{ fontSize: "2.7vw" }}>
                     Book & Travel (Paperless)
                   </span>
                 }
@@ -188,14 +194,14 @@ const BookTicket = () => {
                   <Radio
                     sx={{
                       "& .MuiSvgIcon-root": {
-                        fontSize: 20,
-                        color: "#FF6F00",
+                        fontSize: 22,
+                        color: "#ff5722",
                       },
                     }}
                   />
                 }
                 label={
-                  <span className="radioLabel" style={{ fontSize: "2.6vw" }}>
+                  <span className="radioLabel" style={{ fontSize: "2.7vw" }}>
                     Book & Print (Paper)
                   </span>
                 }

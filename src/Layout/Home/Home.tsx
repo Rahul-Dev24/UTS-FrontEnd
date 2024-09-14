@@ -1,4 +1,4 @@
-import { Card, styled, Tab, Tabs } from "@mui/material";
+import { Card, styled, Tab, Tabs, Typography } from "@mui/material";
 import Nav from "../../Components/navBar/Nav";
 import { SyntheticEvent, useState } from "react";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
@@ -7,7 +7,20 @@ import Footer from "../../Components/footer/Footer";
 import BookTicket from "../../Components/bookTicket/BookTicket";
 import TopSection from "../../Components/topSection/TopSection";
 import CustomCard from "../../Components/card/CustomCard";
-import LocationPopup from "../../Components/location/LocationPopup";
+import { keyframes } from "@mui/system";
+
+// Define keyframes for the blinking effect
+const blink = keyframes`
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
 
 const Home = () => {
   const [value, setValue] = useState(0);
@@ -56,7 +69,22 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <Nav language={true} />
-      <LocationPopup />
+      {/* <LocationPopup /> */}
+
+      <Typography
+        variant="caption"
+        sx={{
+          color: "blueviolet",
+          fontWeight: "bold",
+          mt: 1,
+          display: "block",
+          textAlign: "center",
+          fontSize: "0.8rem",
+          animation: `${blink} 1.5s infinite`, // Apply the blinking animation
+        }}
+      >
+        INDIAN RAILWAYS OFFERS 3% BONUS ON <br /> RECHARGE OF R-WELLET
+      </Typography>
       <Card sx={{ mt: 1, borderRadius: 0, position: "sticky", top: "58px" }}>
         <CustomTabs
           value={value}

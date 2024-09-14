@@ -6,6 +6,8 @@ import StationSearch from "./Components/stationSearch/StationSearch";
 import GetFare from "./Components/getFare/GetFare";
 import Login from "./Components/login/Login";
 import SessionTicketIssue from "./Layout/SessionTicket/SessionTicketIssue";
+import TicketIssue from "./Layout/SessionTicket/TicketIssue";
+import TicketSummary from "./Layout/SessionTicket/TicketSummary";
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
           <Route path="/getFare" element={<GetFare />} />
           <Route path="/login" element={<Login />} />
           <Route path="/getSessionTicket" element={<SessionTicketIssue />} />
+          <Route path="/issueSessionTicket" element={<TicketIssue />} />
+          <Route path="/sessionTicketSummary" element={<TicketSummary />} />
         </Routes>
       </BrowserRouter>
     </div>

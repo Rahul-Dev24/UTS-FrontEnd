@@ -21,10 +21,10 @@ import { keyframes } from "@mui/system";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FF6F00",
+      main: "#ff5722",
     },
     secondary: {
-      main: "#FF6F00",
+      main: "#ff5722",
     },
   },
   typography: {
@@ -37,7 +37,7 @@ const blink = keyframes`
     opacity: 1;
   }
   50% {
-    opacity: 0.4;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
@@ -90,12 +90,23 @@ const GetFare = () => {
                           id="demo-simple-select-standard"
                           value={adult}
                           onChange={(e: any) => setAdult(e?.target?.value)}
+                          sx={{
+                            "& .MuiSelect-select": {
+                              borderBottom: `1px solid #ff5722`, // Underline color
+                            },
+                            "&:before": {
+                              borderBottom: `1px solid #ff5722`, // Underline color before focus
+                            },
+                            "&:after": {
+                              borderBottom: `1px solid #ff5722`, // Underline color after focus
+                            },
+                          }}
                         >
                           {CommonJson?.numberOfPassanger?.map((data, index) => (
                             <MenuItem
                               value={data?.value}
                               key={index}
-                              sx={{ borderBottom: "0.7px solid #FF6F00" }}
+                              sx={{ borderBottom: "0.7px solid #ff5722" }}
                             >
                               {data?.label}
                             </MenuItem>
@@ -116,12 +127,23 @@ const GetFare = () => {
                           id="demo-simple-select-standard"
                           value={child}
                           onChange={(e: any) => setChild(e?.target?.value)}
+                          sx={{
+                            "& .MuiSelect-select": {
+                              borderBottom: `1px solid #ff5722`, // Underline color
+                            },
+                            "&:before": {
+                              borderBottom: `1px solid #ff5722`, // Underline color before focus
+                            },
+                            "&:after": {
+                              borderBottom: `1px solid #ff5722`, // Underline color after focus
+                            },
+                          }}
                         >
                           {CommonJson?.numberOfPassanger?.map((data, index) => (
                             <MenuItem
                               value={data?.value}
                               key={index}
-                              sx={{ borderBottom: "0.7px solid #FF6F00" }}
+                              sx={{ borderBottom: "0.7px solid #ff5722" }}
                             >
                               {data?.label}
                             </MenuItem>
@@ -142,12 +164,23 @@ const GetFare = () => {
                           id="demo-simple-select-standard"
                           value={ticketType}
                           onChange={(e) => setTicketType(e.target.value)}
+                          sx={{
+                            "& .MuiSelect-select": {
+                              borderBottom: `1px solid #ff5722`, // Underline color
+                            },
+                            "&:before": {
+                              borderBottom: `1px solid #ff5722`, // Underline color before focus
+                            },
+                            "&:after": {
+                              borderBottom: `1px solid #ff5722`, // Underline color after focus
+                            },
+                          }}
                         >
                           {CommonJson?.ticketType?.map((data, index) => (
                             <MenuItem
                               value={data?.value}
                               key={index}
-                              sx={{ borderBottom: "0.7px solid #FF6F00" }}
+                              sx={{ borderBottom: "0.7px solid #ff5722" }}
                             >
                               {data?.label}
                             </MenuItem>
@@ -168,12 +201,23 @@ const GetFare = () => {
                           id="demo-simple-select-standard"
                           value={trainType}
                           onChange={(e) => setTrainType(e.target.value)}
+                          sx={{
+                            "& .MuiSelect-select": {
+                              borderBottom: `1px solid #ff5722`, // Underline color
+                            },
+                            "&:before": {
+                              borderBottom: `1px solid #ff5722`, // Underline color before focus
+                            },
+                            "&:after": {
+                              borderBottom: `1px solid #ff5722`, // Underline color after focus
+                            },
+                          }}
                         >
                           {CommonJson?.trainType?.map((data, index) => (
                             <MenuItem
                               value={data?.value}
                               key={index}
-                              sx={{ borderBottom: "0.7px solid #FF6F00" }}
+                              sx={{ borderBottom: "0.7px solid #ff5722" }}
                             >
                               {data?.label}
                             </MenuItem>
@@ -194,12 +238,23 @@ const GetFare = () => {
                           id="demo-simple-select-standard"
                           value={trainClass}
                           onChange={(e) => setTrainClass(e.target.value)}
+                          sx={{
+                            "& .MuiSelect-select": {
+                              borderBottom: `1px solid #ff5722`, // Underline color
+                            },
+                            "&:before": {
+                              borderBottom: `1px solid #ff5722`, // Underline color before focus
+                            },
+                            "&:after": {
+                              borderBottom: `1px solid #ff5722`, // Underline color after focus
+                            },
+                          }}
                         >
                           {CommonJson?.trainClass?.map((data, index) => (
                             <MenuItem
                               value={data?.value}
                               key={index}
-                              sx={{ borderBottom: "0.7px solid #FF6F00" }}
+                              sx={{ borderBottom: "0.7px solid #ff5722" }}
                             >
                               {data?.label}
                             </MenuItem>
@@ -220,6 +275,17 @@ const GetFare = () => {
                           id="demo-simple-select-standard"
                           value={paymentType}
                           onChange={(e) => setPaymentType(e.target.value)}
+                          sx={{
+                            "& .MuiSelect-select": {
+                              borderBottom: `1px solid #ff5722`, // Underline color
+                            },
+                            "&:before": {
+                              borderBottom: `1px solid #ff5722`, // Underline color before focus
+                            },
+                            "&:after": {
+                              borderBottom: `1px solid #ff5722`, // Underline color after focus
+                            },
+                          }}
                         >
                           <MenuItem value="RWALLET">RWALLET</MenuItem>
                           {/* Add more options as needed */}
@@ -263,11 +329,11 @@ const GetFare = () => {
                       }}
                     >
                       <Typography variant="body2">
-                        <p style={{ color: "#FF6F00" }}>Source Station:</p>
+                        <p style={{ color: "#ff5722" }}>Source Station:</p>
                         <h4 style={{ fontSize: "0.8rem" }}>GUMMIDIPUNDI</h4>
                       </Typography>
                       <Typography variant="body2" sx={{ textAlign: "right" }}>
-                        <p style={{ color: "#FF6F00" }}>Destination Station</p>
+                        <p style={{ color: "#ff5722" }}>Destination Station</p>
                         <h4 style={{ fontSize: "0.8rem" }}>
                           CHENNAI CENTRAL SUBU
                         </h4>
@@ -276,7 +342,7 @@ const GetFare = () => {
                     <div className="line"></div>
 
                     <Typography variant="body2">
-                      <span style={{ color: "#FF6F00" }}>Via:</span> TVT-BBQ
+                      <span style={{ color: "#ff5722" }}>Via:</span> TVT-BBQ
                     </Typography>
                     <div className="line"></div>
 
@@ -287,15 +353,15 @@ const GetFare = () => {
                       }}
                     >
                       <Typography variant="body2">
-                        <span style={{ color: "#FF6F00" }}>Adult:</span>
+                        <span style={{ color: "#ff5722" }}>Adult:</span>
                         <span style={{ marginRight: "8px" }}>{adult}</span>
-                        <span style={{ color: "#FF6F00" }}>Child:</span>
+                        <span style={{ color: "#ff5722" }}>Child:</span>
                         <span style={{ marginRight: "8px" }}>{child}</span>
-                        <span style={{ color: "#FF6F00" }}>Escort:</span>
+                        <span style={{ color: "#ff5722" }}>Escort:</span>
                         <span style={{ marginRight: "8px" }}>{"0"}</span>
                       </Typography>
                       <Typography variant="body2">
-                        <span style={{ color: "#FF6F00" }}>Class Type:</span>
+                        <span style={{ color: "#ff5722" }}>Class Type:</span>
                         {trainClass}
                       </Typography>
                     </div>
@@ -307,11 +373,11 @@ const GetFare = () => {
                       }}
                     >
                       <Typography variant="body2">
-                        <span style={{ color: "#FF6F00" }}>Ticket Type:</span>
+                        <span style={{ color: "#ff5722" }}>Ticket Type:</span>
                         {ticketType}
                       </Typography>
                       <Typography variant="body2">
-                        <span style={{ color: "#FF6F00" }}>Train Type:</span>
+                        <span style={{ color: "#ff5722" }}>Train Type:</span>
                         {trainType}
                       </Typography>
                     </div>
@@ -340,7 +406,7 @@ const GetFare = () => {
                         <h4 style={{ fontSize: "0.8rem", fontWeight: "bold" }}>
                           Total Fare:
                         </h4>
-                        <h2 style={{ color: "#FF6F00" }}>₹{amount}/-</h2>
+                        <h2 style={{ color: "#ff5722" }}>₹{amount}/-</h2>
                       </Typography>
                     </Box>
 
@@ -370,7 +436,7 @@ const GetFare = () => {
                       color="primary"
                       sx={{
                         mt: 2,
-                        background: "linear-gradient(45deg, #FF6F00, #FF8E53)",
+                        background: "linear-gradient(45deg, #ff5722, #FF8E53)",
                         color: "#fff",
                         borderRadius: 21,
                         width: "60%",
