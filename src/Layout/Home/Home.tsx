@@ -73,12 +73,11 @@ const Home = () => {
       <Typography
         variant="caption"
         sx={{
-          color: "blueviolet",
-          fontWeight: "bold",
+          color: "blue",
           mt: 1,
           display: "block",
           textAlign: "center",
-          fontSize: "0.8rem",
+          fontSize: "1rem",
           animation: `${blink} 1.5s infinite`, // Apply the blinking animation
         }}
       >

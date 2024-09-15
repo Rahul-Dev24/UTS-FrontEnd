@@ -8,6 +8,8 @@ import Login from "./Components/login/Login";
 import SessionTicketIssue from "./Layout/SessionTicket/SessionTicketIssue";
 import TicketIssue from "./Layout/SessionTicket/TicketIssue";
 import TicketSummary from "./Layout/SessionTicket/TicketSummary";
+import ShowTicket from "./Layout/ShowTicket/ShowTicket";
+import ViewTicket from "./Layout/ShowTicket/ViewTicket";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/getSessionTicket" element={<SessionTicketIssue />} />
           <Route path="/issueSessionTicket" element={<TicketIssue />} />
           <Route path="/sessionTicketSummary" element={<TicketSummary />} />
+          <Route path="/showTicket" element={<ShowTicket />} />
+          <Route path="/viewTicket" element={<ViewTicket />} />
         </Routes>
       </BrowserRouter>
     </div>

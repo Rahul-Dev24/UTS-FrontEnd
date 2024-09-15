@@ -59,8 +59,11 @@ const SessionTicketIssue: React.FC = () => {
       <Nav language={false} />
       <Box sx={{ flexGrow: 1, padding: "0.7rem" }}>
         <Card sx={{ width: "100%", margin: "auto" }}>
-          <div className="top" style={{ display: "flex", gap: "10px" }}>
-            <img src="/ticket_white_uts.png" width={20} height={20} />
+          <div
+            className="top"
+            style={{ display: "flex", gap: "10px", alignItems: "center" }}
+          >
+            <img src="/ticket_white_uts.png" width={30} height={28} />
             <p>TICKET ISSUE</p>
           </div>
           <div className="cardBody">

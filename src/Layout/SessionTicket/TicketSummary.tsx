@@ -128,24 +128,26 @@ const TicketSummary = () => {
                 </h4>
                 <h3>₹{"185"}.00/-</h3>
               </Typography>
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  fontWeight: "bold",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                  width: "50%",
-                  backgroundColor: "#fccba6",
-                  p: 1,
-                }}
-              >
-                <h4 style={{ fontSize: "0.8rem", fontWeight: "500" }}>
-                  Wallet Balance
-                </h4>
-                <h3>₹{"206"}.00/-</h3>
-              </Typography>
+              {localStorage?.getItem("user") && (
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: "bold",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column",
+                    width: "50%",
+                    backgroundColor: "#fccba6",
+                    p: 1,
+                  }}
+                >
+                  <h4 style={{ fontSize: "0.8rem", fontWeight: "500" }}>
+                    Wallet Balance
+                  </h4>
+                  <h3>₹{"206"}.00/-</h3>
+                </Typography>
+              )}
             </Box>
             <Typography
               variant="body2"
