@@ -70,8 +70,6 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <Nav language={true} />
-      <LocationPopup />
-
       <Typography
         variant="caption"
         sx={{
@@ -167,6 +165,7 @@ const Home = () => {
         </div>
       </div>
       <Footer version={value} />
+      <LocationPopup />
     </div>
   );
 };
