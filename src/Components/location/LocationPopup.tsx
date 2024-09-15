@@ -1,68 +1,49 @@
-import React, { useEffect, useState } from "react";
-import { Button, Dialog, DialogActions, DialogTitle } from "@mui/material";
-import "./LocationPopup.css";
 import axios from "axios";
-const LocationPopup: React.FC = () => {
-  const [open, setOpen] = useState(false);
+import { useEffect, useState } from "react";
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+const LocationPopup = () => {
+  const [error, setError] = useState<any>(null);
 
-  const handleAllowLocation = () => {
-    // Ask for location permission
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setOpen(false);
-        axios
-          .get(
-            `https://nominatim.openstreetmap.org/reverse?lat=${position?.coords?.latitude}&lon=${position?.coords?.longitude}&format=json`
-          )
-          .then((res) => {
-            sessionStorage.setItem(
-              "location",
-              JSON.stringify(res?.data?.address)
-            );
-          });
-      },
-      (error) => {
-        console.log("Location permission denied", error);
-        setOpen(false);
-      }
-    );
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          axios
+            .get(
+              `https://nominatim.openstreetmap.org/reverse?lat=${position?.coords?.latitude}&lon=${position?.coords?.longitude}&format=json`
+            )
+            .then((res) => {
+              sessionStorage.setItem(
+                "location",
+                JSON.stringify(res?.data?.address)
+              );
+            });
+        },
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              setError("User denied the request");
+              break;
+            case error.POSITION_UNAVAILABLE:
+              setError("Location unavailable");
+              break;
+            case error.TIMEOUT:
+              setError("The request to get user location timed out.");
+              break;
+            default:
+              setError("An error occurred.");
+          }
+        }
+      );
+    }
   };
   useEffect(() => {
-    const location = sessionStorage.getItem("location");
-    console.log(location);
-
-    if (!location) {
-      handleClickOpen();
+    let locationData = sessionStorage.getItem("location");
+    if (!locationData) {
+      getLocation();
     }
-  }, []);
-  return (
-    <>
-      <Dialog open={open} onClose={handleClose}>
-        <div className="locationContiner">
-          <DialogTitle sx={{ textAlign: "center", fontSize: "0.9rem" }}>
-            Allow UTS to access this device's location?
-          </DialogTitle>
-          <DialogActions
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-end",
-              width: "100%",
-            }}
-          >
-            <Button onClick={handleAllowLocation}>Allow</Button>
-          </DialogActions>
-        </div>
-      </Dialog>
-    </>
-  );
+  }, [error]);
+  return <></>;
 };
 
 export default LocationPopup;
