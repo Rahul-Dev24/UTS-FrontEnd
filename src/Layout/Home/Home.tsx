@@ -70,20 +70,22 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <Nav language={true} />
-      <Typography
-        variant="caption"
-        sx={{
-          color: "blue",
-          mt: 1,
-          display: "block",
-          textAlign: "center",
-          fontSize: "1rem",
-          animation: `${blink} 1.5s infinite`, // Apply the blinking animation
-        }}
-      >
-        INDIAN RAILWAYS OFFERS 3% BONUS ON <br /> RECHARGE OF R-WELLET
-      </Typography>
       <Card sx={{ mt: 1, borderRadius: 0, position: "sticky", top: "58px" }}>
+        <Typography
+          variant="caption"
+          sx={{
+            color: "rgb(3, 3, 196)",
+            mb: 1,
+            display: "block",
+            textAlign: "center",
+            fontSize: "0.8rem",
+            fontWeight: "600",
+            animation: `${blink} 1.5s infinite`, // Apply the blinking animation
+          }}
+        >
+          INDIAN RAILWAYS OFFERS 3% BONUS ON <br /> RECHARGE OF R-WELLET
+        </Typography>
+        <div className="line" style={{ margin: "-1px 0" }}></div>
         <CustomTabs
           value={value}
           onChange={handleChange}

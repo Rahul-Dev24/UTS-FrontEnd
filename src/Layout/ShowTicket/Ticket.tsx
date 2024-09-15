@@ -7,7 +7,9 @@ const Ticket = () => {
     <Card sx={{ p: 1, boxShadow: 4, width: "105%" }}>
       <div className="ticket">
         <div className="ticketTop">
-          <div style={{ width: "50%" }}>SESSION (M-TICKET) </div>
+          <div style={{ width: "50%", fontSize: "0.8rem" }}>
+            SESSION (M-TICKET){" "}
+          </div>
           <div className="horLine"></div>
           <div
             style={{
@@ -15,6 +17,7 @@ const Ticket = () => {
               alignItems: "center",
               width: "50%",
               justifyContent: "end",
+              fontSize: "0.8rem",
             }}
           >
             FARE: &nbsp; <img src="/rs_uts.png" width={15} height={15} /> 185.00

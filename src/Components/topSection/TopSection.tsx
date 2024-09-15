@@ -10,7 +10,7 @@ const TopSection = () => {
   const reDerict = () => {
     setMessage("Kindly Login to proceed further.");
     setTimeout(() => {
-      navigate("/showTicket");
+      navigate("/login");
     }, 1200);
   };
   const navigateUser = (key: string) => {
@@ -18,32 +18,32 @@ const TopSection = () => {
       case "cancel":
         if (!user) {
           reDerict();
-        }
+        } else navigate("/showTicket");
         break;
       case "history":
         if (!user) {
           reDerict();
-        }
+        } else navigate("/showTicket");
         break;
       case "show":
         if (!user) {
           reDerict();
-        }
+        } else navigate("/showTicket");
         break;
       case "wellet":
         if (!user) {
           reDerict();
-        }
+        } else navigate("/showTicket");
         break;
       case "profile":
         if (!user) {
           reDerict();
-        }
+        } else navigate("/showTicket");
         break;
       case "transaction":
         if (!user) {
           reDerict();
-        }
+        } else navigate("/showTicket");
         break;
     }
   };

@@ -1,6 +1,5 @@
 import "./BookTicket.css";
 import {
-  Box,
   Button,
   Card,
   Divider,
@@ -243,13 +242,12 @@ const BookTicket = () => {
             {/* <StationSearch /> */}
           </div>
         </ThemeProvider>
-        <Box
-          sx={{
+        <div
+          style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            padding: 2,
-            boxShadow: 1,
+            padding: "0 1rem",
             borderRadius: 2,
             backgroundColor: "#fff",
           }}
@@ -331,7 +329,7 @@ const BookTicket = () => {
             </Grid>
           </Grid>
 
-          <Grid container spacing={2} sx={{ marginTop: 0 }}>
+          <Grid container spacing={2} sx={{ p: 1, marginBottom: "0.5rem" }}>
             <Grid item xs={6} onClick={() => getNextTrain()}>
               <Button
                 variant="contained"
@@ -359,7 +357,7 @@ const BookTicket = () => {
               </Button>
             </Grid>
           </Grid>
-        </Box>
+        </div>
       </Card>
     </div>
   );
