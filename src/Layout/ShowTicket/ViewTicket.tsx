@@ -332,7 +332,7 @@ const ViewTicket = () => {
           </Button>
         </div>
       </Card >
-      <Footer version={1} />
+{/*       <Footer version={1} /> */}
     </>
   );
 };
