@@ -276,8 +276,8 @@ const ViewTicket = () => {
         >
           <h5>R21493</h5>
           <div style={{ display: "flex" }}>
-            <h5 style={{ fontWeight: "100", color: "#000", fontSize: "0.6rem" }} >Distance:</h5> &nbsp;
-            <h5 style={{ fontWeight: "100", color: "#000", fontSize: "0.6rem" }} >45 km</h5>
+            <h5 style={{ fontWeight: "100", color: "#000", fontSize: "0.7rem" }} >Distance:</h5> &nbsp;
+            <h5 style={{ fontWeight: "100", color: "#000", fontSize: "0.7rem" }} >76 km</h5>
           </div>
         </div>
         <h5>Booking Time: {DateFormat(new Date())}&nbsp;{new Date().getHours()}:{new Date().getMinutes()}</h5>
