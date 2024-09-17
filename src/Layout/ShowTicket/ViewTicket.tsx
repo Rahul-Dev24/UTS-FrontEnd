@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import "./ticket.css";
 import { DateFormat } from "../../utils/DateFormat";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../Components/footer/Footer";
+// import Footer from "../../Components/footer/Footer";
 // Styled component for the marquee effect
 const MarqueeContainer = styled(Box)`
   overflow: hidden;
