@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./GetFare.css";
 import {
   Box,
@@ -52,8 +52,27 @@ const GetFare = () => {
   const [trainClass, setTrainClass] = useState("SECOND");
   const [paymentType, setPaymentType] = useState("RWALLET");
   const [availConcession, setAvailConcession] = useState(false);
-  // const [amount, setAmount] = useState(15);
-  let amount = 15;
+  const [source, setSource] = useState<any>();
+  const [distination, setDistination] = useState<any>();
+  const [amount, setAmount] = useState<number>(15);
+
+
+  useEffect(() => {
+    setAmount(5 * adult)
+  }, [adult]);
+
+
+  useEffect(() => {
+    const src = sessionStorage.getItem("source");
+    const dst = sessionStorage.getItem("destination");
+    if (src && dst) {
+      setSource(JSON.parse(src));
+      setDistination(JSON.parse(dst));
+    }
+    if (source?.name == "Gummidipundi" || source?.name == "Ponneri" && distination?.name == "Gummidipundi" || distination?.name == "Ponneri") setAmount(5);
+  }, [])
+
+
   return (
     <div className="fareContainer">
       <Nav language={false} />
@@ -330,12 +349,12 @@ const GetFare = () => {
                     >
                       <Typography variant="body2">
                         <p style={{ color: "#ff5722" }}>Source Station:</p>
-                        <h4 style={{ fontSize: "0.8rem" }}>GUMMIDIPUNDI</h4>
+                        <h4 style={{ fontSize: "0.8rem" }}>{source?.name?.toUpperCase()}</h4>
                       </Typography>
                       <Typography variant="body2" sx={{ textAlign: "right" }}>
                         <p style={{ color: "#ff5722" }}>Destination Station</p>
                         <h4 style={{ fontSize: "0.8rem" }}>
-                          CHENNAI CENTRAL SUBU
+                          {distination?.name?.toUpperCase()}
                         </h4>
                       </Typography>
                     </div>
