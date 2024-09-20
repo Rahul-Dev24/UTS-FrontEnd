@@ -10,8 +10,13 @@ import TicketIssue from "./Layout/SessionTicket/TicketIssue";
 import TicketSummary from "./Layout/SessionTicket/TicketSummary";
 import ShowTicket from "./Layout/ShowTicket/ShowTicket";
 import ViewTicket from "./Layout/ShowTicket/ViewTicket";
+import { useState } from "react";
+import { getStation } from "./utils/getStationData";
 
 const App = () => {
+  useState(() => {
+    getStation();
+  });
   return (
     <div>
       <BrowserRouter>

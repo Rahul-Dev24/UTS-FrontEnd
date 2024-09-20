@@ -1,6 +1,7 @@
 import { Typography, Card } from "@mui/material";
 import "./ticket.css";
 import { Link } from "react-router-dom";
+import { lastWeek } from "../../utils/DateFormat";
 
 const Ticket = () => {
   return (
@@ -20,7 +21,7 @@ const Ticket = () => {
               fontSize: "0.8rem",
             }}
           >
-            FARE: &nbsp; <img src="/rs_uts.png" width={15} height={15} /> 355.00
+            FARE: &nbsp; <img src="/rs_uts.png" width={15} height={15} /> 185.00
           </div>
         </div>
         <div className="ticketBottom">
@@ -33,7 +34,7 @@ const Ticket = () => {
             }}
           >
             <img src="/source_uts.png" width={18} height={18} />
-            <h5 style={{ fontWeight: "500" }}>GUMMIDIPUNDI</h5>
+            <h5 style={{ fontWeight: "500" }}>PONNERI</h5>
           </div>
           <div className="horLine"></div>
           <div
@@ -54,7 +55,7 @@ const Ticket = () => {
               }}
             >
               <img src="/destination_uts.png" width={18} height={18} />
-              <h5 style={{ fontWeight: "500" }}>TAMBARAM</h5>
+              <h5 style={{ fontWeight: "500" }}>KODAMBAKKAM</h5>
             </div>
           </div>
         </div>
@@ -165,7 +166,7 @@ const Ticket = () => {
                 fontSize: "0.7rem",
               }}
             >
-              12/09/2024 &nbsp; 15:45
+              {lastWeek()} &nbsp; 15:43
             </span>
           </div>
           <div className="horLine"></div>

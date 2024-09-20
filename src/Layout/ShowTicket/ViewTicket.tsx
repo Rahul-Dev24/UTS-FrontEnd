@@ -1,9 +1,10 @@
-import { Box, Typography, Card, Button } from "@mui/material";
+import { Box, Typography, Card, Button, DialogTitle, DialogContent, Dialog, DialogActions } from "@mui/material";
 import styled from "@emotion/styled";
 import "./ticket.css";
-import { DateFormat } from "../../utils/DateFormat";
+import { lastWeek, NextMonth } from "../../utils/DateFormat";
 import { useNavigate } from "react-router-dom";
-// import Footer from "../../Components/footer/Footer";
+import Footer from "../../Components/footer/Footer";
+import { useState } from "react";
 // Styled component for the marquee effect
 const MarqueeContainer = styled(Box)`
   overflow: hidden;
@@ -32,11 +33,40 @@ const MarqueeContent = styled(Typography)`
 `;
 
 const ViewTicket = () => {
+  const [openQR, setOpenQR] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
   return (
     <>
+      <Dialog
+        open={openQR}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title" sx={{ width: "80vw" }}>
+          <strong>Ticket QR code</strong>
+        </DialogTitle>
+        <MarqueeContainer sx={{ marginTop: "-15px" }} >
+          <MarqueeContent variant="body1">
+            <span> IR Unreserved Ticketing</span>
+          </MarqueeContent>
+        </MarqueeContainer>
+        <DialogContent sx={{ display: "flex", justifyContent: "center" }} >
+          {/* Make sure to use double quotes for JSX attributes and style as an object */}
+          <img
+            src="https://cdn.me-qr.com/qr/126846931.png?v=1726836571"
+            width={180} height={180}
+            style={{ border: 0 }}  // `border` is applied as part of style, not as an attribute
+          />
+        </DialogContent>
+
+        <DialogActions>
+          <Button onClick={() => setOpenQR(false)} autoFocus sx={{ color: "#ff6f00" }}>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog >
       <div className="ticketNav">
         <img src="/cris_uts.png" alt="" width={35} height={35} />
         <MarqueeContainer>
@@ -82,7 +112,7 @@ const ViewTicket = () => {
               marginBottom: "0.4rem",
             }}
           >
-            <h5>₹ 355.00/-</h5>
+            <h5>₹ 185.00/-</h5>
             <h5>9087149088</h5>
           </div>
           <div
@@ -136,7 +166,7 @@ const ViewTicket = () => {
               width: "100%",
             }}
           >
-            <h5 style={{ marginLeft: "1.5rem" }}>गुम्मिडिपुंडी</h5>
+            <h5 style={{ marginLeft: "1.5rem" }}>पोन्नेरी</h5>
             <div
               style={{
                 width: "50%",
@@ -146,9 +176,9 @@ const ViewTicket = () => {
               }}
             >
               <h5 className="S-D_tag" >S</h5>
-              <h5>GUMMIDIPUNDI</h5>
+              <h5>PONNERI</h5>
             </div>
-            <h5 style={{ marginLeft: "1.5rem" }}>கும்மிடிப்பூண்டி</h5>
+            <h5 style={{ marginLeft: "1.5rem" }}>பொன்னேரி</h5>
           </div>
           <div
             style={{
@@ -157,7 +187,7 @@ const ViewTicket = () => {
               width: "100%",
             }}
           >
-            <h5 style={{ marginLeft: "1.5rem" }}>ताम्बरम</h5>
+            <h5 style={{ marginLeft: "1.5rem" }}>कोडमबक्कम</h5>
             <div
               style={{
                 width: "50%",
@@ -167,9 +197,9 @@ const ViewTicket = () => {
               }}
             >
               <h5 className="S-D_tag">D</h5>
-              <h5>TAMBARAM</h5>
+              <h5>KODAMBAKKAM</h5>
             </div>
-            <h5 style={{ marginLeft: "1.5rem" }}>தாம்பரம்</h5>
+            <h5 style={{ marginLeft: "1.5rem" }}>கோடம்பாக்கம்</h5>
           </div>
           <div
             style={{
@@ -261,9 +291,9 @@ const ViewTicket = () => {
           }}
         >
           <h5 style={{ fontWeight: "200", color: "#000" }} >Validity: FROM</h5> &nbsp;
-          <h5 style={{ color: "red" }}>{DateFormat(new Date())}</h5>
+          <h5 style={{ color: "red" }}>{lastWeek()}</h5>
           &nbsp; <h5>TO</h5> &nbsp;
-          <h5 style={{ color: "red" }}>{DateFormat(new Date())}</h5>
+          <h5 style={{ color: "red" }}>{NextMonth()}</h5>
         </div>
         <div
           style={{
@@ -277,12 +307,12 @@ const ViewTicket = () => {
           <h5>R21493</h5>
           <div style={{ display: "flex" }}>
             <h5 style={{ fontWeight: "100", color: "#000", fontSize: "0.7rem" }} >Distance:</h5> &nbsp;
-            <h5 style={{ fontWeight: "100", color: "#000", fontSize: "0.7rem" }} >76 km</h5>
+            <h5 style={{ fontWeight: "100", color: "#000", fontSize: "0.7rem" }} >45 km</h5>
           </div>
         </div>
-        <h5>Booking Time: {DateFormat(new Date())}&nbsp;{new Date().getHours()}:{new Date().getMinutes()}</h5>
+        <h5>Booking Time: {lastWeek()}&nbsp;{`15:43`}</h5>
       </div>
-      <Card sx={{ p: 1, width: "93%", margin: "auto" }}>
+      <Card sx={{ p: 1, width: "93%", margin: "auto", mb: 3 }}>
         <h6 style={{ color: "rgb(90, 141, 235)" }}>it is recommended not to perform factory reset or change you handset whenever you are having valid ticket in the mobile.</h6>
         <a href="#" style={{ color: "#ff7f50", fontSize: "0.7rem" }} >Click for Changing Handset with Valid Ticket</a>
         <h6 style={{ textAlign: "center", color: "red", marginTop: "8px" }}>FOR MEDICAL EMERGENCY | FIRST AID. CONTACT TICKET <br /> CHECKING STAFFIGUARD OR DIAL 139 </h6>
@@ -291,6 +321,7 @@ const ViewTicket = () => {
             fullWidth
             variant="contained"
             color="primary"
+            onClick={() => setOpenQR(true)}
             sx={{
               mt: 1,
               background: "linear-gradient(45deg, #ff5722, #FF8E53)",
@@ -313,7 +344,7 @@ const ViewTicket = () => {
               width: "90%",
             }}
           >
-            NEXT TRAINS TO TAMBARAM
+            NEXT TRAINS TO KODAMBAKKAM
           </Button>
           <Button
             fullWidth
@@ -332,7 +363,7 @@ const ViewTicket = () => {
           </Button>
         </div>
       </Card >
-{/*       <Footer version={1} /> */}
+      <Footer version={1} />
     </>
   );
 };
