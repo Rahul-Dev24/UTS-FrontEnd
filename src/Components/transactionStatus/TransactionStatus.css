@@ -1,0 +1,33 @@
+.radioBorder {
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ff5722;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.transactionData {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 10px;
+}
+
+.transactionData .left,
+.transactionData .right {
+    display: flex;
+}
+
+.transactionData .left h5:first-child,
+.transactionData .right h5:first-child {
+    color: gray;
+}
+
+.transactionData .chep {
+    color: #fff !important;
+    background-color: green;
+    padding: 7px 15px;
+    border-radius: 12px;
+    margin-top: -7px;
+}
