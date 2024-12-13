@@ -1,0 +1,4 @@
+{
+    "AuthBaseUrl": "https://uts-dev.onrender.com/api/auth/v1",
+    "TicketBaseUrl": "https://uts-dev.onrender.com/api/ticket/v1"
+}
