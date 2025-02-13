@@ -11,7 +11,7 @@ import { keyframes } from "@mui/system";
 import LocationPopup from "../../Components/location/LocationPopup";
 
 // Define keyframes for the blinking effect
-const blink = keyframes`
+/* const blink = keyframes`
   0% {
     opacity: 1;
   }
@@ -21,7 +21,7 @@ const blink = keyframes`
   100% {
     opacity: 1;
   }
-`;
+`; */
 
 const Home = () => {
   const [value, setValue] = useState(0);
