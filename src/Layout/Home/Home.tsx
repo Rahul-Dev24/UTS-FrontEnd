@@ -71,7 +71,7 @@ const Home = () => {
     <div className="homeContainer">
       <Nav language={true} />
       <Card sx={{ mt: 1, borderRadius: 0, position: "sticky", top: "58px" }}>
-       /* <Typography
+        {/* <Typography
           variant="caption"
           sx={{
             color: "rgb(3, 3, 196)",
@@ -84,7 +84,7 @@ const Home = () => {
           }}
         >
           INDIAN RAILWAYS OFFERS 3% BONUS ON <br /> RECHARGE OF R-WELLET
-        </Typography> */
+        </Typography> */}
         <div className="line" style={{ margin: "-1px 0" }}></div>
         <CustomTabs
           value={value}
