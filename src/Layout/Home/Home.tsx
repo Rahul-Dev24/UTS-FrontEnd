@@ -1,4 +1,4 @@
-import { Card, styled, Tab, Tabs, Typography } from "@mui/material";
+import { Card, styled, Tab, Tabs } from "@mui/material";
 import Nav from "../../Components/navBar/Nav";
 import { SyntheticEvent, useState } from "react";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
