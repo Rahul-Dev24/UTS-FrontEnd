@@ -1,9 +1,0 @@
-.locationContiner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-    width: 100%;
-    height: fit-content;
-}
