@@ -283,7 +283,7 @@ const TransactionStatus = () => {
                         </div>
                         <div className="right">
                             <h5>Amount&nbsp;:&nbsp;</h5>
-                            <h5>₹ 185.0</h5>
+                            <h5>₹ 270.0</h5>
                         </div>
                     </div>
                     <div className='transactionData'>
