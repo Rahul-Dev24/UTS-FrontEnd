@@ -348,7 +348,7 @@ const ViewTicket = () => {
               width: "90%",
             }}
           >
-            NEXT TRAINS TO KODAMBAKKAM
+            NEXT TRAINS TO GUINDY
           </Button>
           <Button
             fullWidth
