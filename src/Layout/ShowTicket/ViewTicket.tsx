@@ -157,7 +157,7 @@ const ViewTicket = () => {
           >
             <div style={{ display: "flex" }}>
               <h5>Age: </h5> &nbsp;
-              <h5 style={{ color: "red" }}>22 years</h5>
+              <h5 style={{ color: "red" }}>23 years</h5>
             </div>
             <h5 style={{ color: "red" }}>Between</h5>
           </div>
